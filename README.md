@@ -1,4 +1,9 @@
-## Spirit Island Randomizer v4.2.0 — First Production Release
+## Spirit Island Randomizer v4.2.1 — UI improvements and data file fixes
+
+### What's new in v4.2.1
+
+- Fixed: errors in the data files for spirits; removed use of filenames where they should be expansion names.
+- Improved: various UI tweaks for consistency and clarity; now gives warnings when selecting "incompatible" board combinations.
 
 A standalone Windows application for generating randomised Spirit Island game setups. No Python or other software required — just download, extract, and run.
 
