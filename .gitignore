@@ -1,1 +1,21 @@
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# VS Code
+.vscode/
+
+# Build artifacts — never commit these; upload to GitHub Releases only
+*.zip
+*.zip.*
+*.tar.gz
+
+# Release tooling — internal, not for public consumption
 New-Release.ps1
+
+# PowerShell temp
+*.ps1xml
+
