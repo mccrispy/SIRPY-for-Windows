@@ -1,6 +1,6 @@
 # Spirit Island Randomizer
 
-[![Version](https://img.shields.io/badge/version-4.3.0-blue)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-4.4.0-blue)](CHANGELOG.md)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 A Windows desktop app that generates random Spirit Island game combinations and launches them directly in Spirit Island Digital.
@@ -27,7 +27,7 @@ A Windows desktop app that generates random Spirit Island game combinations and 
 
 ## Quick Start
 
-1. Open the **Spirit Selection** tab and check the spirits you want to include
+1. Open the **Spirit Pool** tab and check the spirits you want to include
 2. Set the **spirit count** slider to how many spirits you want in the game setup
 3. Click **Generate**
 4. Review the result in the results panel
@@ -39,12 +39,15 @@ A Windows desktop app that generates random Spirit Island game combinations and 
 
 ### Choosing Spirits
 
-The **Spirit Selection** tab shows all spirits in a collapsible tree. Each base spirit can be expanded to reveal its aspects.
+The **Spirit Pool** tab shows all spirits in a collapsible tree. Each base spirit can be expanded to reveal its aspects.
 
 - **Tristate checkboxes** control whether an item is included — see [Checkbox States](#checkbox-states) below
-- **Base Only** / **Aspects Only** — bulk-select only base spirits or only aspects in one click
+- **Base Only** / **Aspects Only** — bulk-select only base spirits or only aspects in one click.
 - **Select All** / **Deselect All** — check or uncheck every item at once
-- **Expansion filter** — filter the list to spirits from specific expansions; click **Clear Filters** to reset
+- **Expansion filter** — dropdown panel to filter the list to spirits from specific expansions
+- **Complexity filter** — dropdown panel to filter by spirit complexity (Low / Medium / High / Very High)
+- **Name filter** — dropdown panel with a live text search to find spirits by name
+- Each filter has an on/off toggle (click the button) and its own **Clear** button; **Clear All Filters** resets all three at once. Note that when a filter is active, the bulk operations work on the *filtered subset*
 
 One spirit *or* one of its aspects will appear in any given game setup — never both at the same time.
 
@@ -52,7 +55,7 @@ One spirit *or* one of its aspects will appear in any given game setup — never
 
 ### Boards, Adversaries & Scenarios
 
-The **Board / Adv / Scen Selection** tab has three columns: Boards, Adversaries, and Scenarios.
+The **Other Pools** tab has three columns: Boards, Adversaries, and Scenarios.
 
 Each column has its own **Select All** / **Deselect All** buttons and uses the same tristate checkboxes as the spirit list.
 
@@ -60,19 +63,18 @@ Each column has its own **Select All** / **Deselect All** buttons and uses the s
 
 ### Control Panel
 
-The control panel on the left side of the main window contains:
+The control panel on the right side of the main window contains:
 
-| Control                                                     | Description                                                                                          |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **Spirit count** slider                                     | How many spirits to include in the generated game setup (1–6)                                        |
-| **Branch & Claw** / **Jagged Earth** / **Nature Incarnate** | Toggle each expansion on or off (this affects the available Spirits, Events, Fear, and Powers)       |
-| **Include Additional Board**                                | Add one extra random board not assigned to any spirit                                                |
-| **Strict Board Compatibility**                              | Only generate board combinations that avoid very swingy setups as a result of concentrating terrains |
-| **Thematic Boards**                                         | Restrict board selection to thematic (named) boards instead of standard lettered boards              |
-| **Use Tokens**                                              | Pass the Use Tokens option through to the Spirit Island Digital launch URL                           |
-| **Use Events**                                              | Pass the Toggles the "Events" gameplay option. On uses Events, Off uses Command Beasts               |
+| Control                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Spirit count** slider                                     | How many spirits to include in the generated game setup (1–6)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Branch & Claw** / **Jagged Earth** / **Nature Incarnate** | Toggle each expansion on or off (this affects the available Spirits, Events, Fear, and Powers)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Include Additional Board**                                | Add one extra random board not assigned to any spirit                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Strict Board Compatibility**                              | Only generate board combinations that avoid very swingy setups as a result of concentrating terrains                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **Thematic Boards**                                         | Restrict board selection to thematic (named) boards (compass-direction names, fixed arrangement). The layout panel switches to the thematic arrangement diagram for the current player count. If a result is already showing when you toggle this on, the boards are immediately reassigned to the fixed thematic set in compass order; toggling back off restores the original board assignments. If "Include Additional Board" was active and the spirit count is 6, the additional board is temporarily dropped in thematic mode and restored when you switch back. The Board Layout selector is disabled while thematic mode is active. |
+| **Board Layout**                                            | Choose how the boards are physically arranged. Pick a named layout (e.g. Coastline, Leaf, Star), select **Random** to let the app choose a valid layout automatically, or leave it on **Standard**. ick the **Preferred** checkbox to save the current selection as the default for this board count — the app will auto-apply it whenever you return to that count.                                                                                                                                                                                                                                                                        |
+| **Use Events**                                              | Toggles the "Events" gameplay option. On uses Events, Off uses Command Beasts                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-> **Use Tokens** and **Use Events** do not affect what the randomizer picks — they are gameplay options.
 
 ---
 
@@ -107,8 +109,8 @@ Click **Launch** to open the current game setup in Spirit Island Digital.
 
 A profile captures all your current selections (spirits, boards, adversaries, scenarios) and settings (expansion toggles, board options, spirit count, etc.) in a single file.
 
-- **Save Profile** — opens a file dialog; save the profile anywhere you like
-- **Load Profile** — opens a file dialog; restores all selections and settings from the chosen file
+- **Save Setup** — opens a file dialog; save the setup anywhere you like
+- **Load Setup** — opens a file dialog; restores all selections and settings from the chosen file
 
 Profiles are useful for switching quickly between preset configurations (e.g. a two-player setup vs. a solo setup).
 
@@ -116,14 +118,14 @@ Profiles are useful for switching quickly between preset configurations (e.g. a 
 
 ### Reference Tabs
 
-Four read-only reference tabs let you look up limited information without leaving the app:
+Four read-only reference tabs let you look up limited information without leaving the app. This is a work in progress, more details will be available in future releases:
 
-| Tab                       | Contents                                                                        |
-| ------------------------- | ------------------------------------------------------------------------------- |
-| **Spirits Reference**     | All spirits and aspects; sortable by name, complexity, or expansion; searchable |
-| **Boards Reference**      | All boards; terrain by land number, setup components by land number             |
-| **Adversaries Reference** | All adversaries; difficulty level by Adversary level                            |
-| **Scenarios Reference**   | All scenarios; no additional information is provided in this section            |
+| Tab                    | Contents                                                                        |
+| ---------------------- | ------------------------------------------------------------------------------- |
+| **Spirits (Info)**     | All spirits and aspects; sortable by name, complexity, or expansion; searchable |
+| **Boards (Info)**      | All boards; terrain by land number, setup components by land number             |
+| **Adversaries (Info)** | All adversaries; difficulty level by Adversary level                            |
+| **Scenarios (Info)**   | All scenarios; no additional information is provided in this section            |
 
 ---
 
@@ -177,7 +179,7 @@ No manual save is needed — state is written automatically when the app closes.
 ### Selections or settings were lost
 
 - State files live in `%APPDATA%\SIRPYv4\`. If they become corrupted, delete them and the app will start fresh
-- Use **Save Profile** regularly to preserve configurations you care about
+- Use **Save Setup** regularly to preserve configurations you care about
 
 ### App log
 
