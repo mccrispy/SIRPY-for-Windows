@@ -16,8 +16,8 @@ A Windows desktop app that generates random Spirit Island game combinations and 
 
 ## Installation
 
-1. Download **all** release archive parts (`.zip.001`, `.zip.002`, …) into the same folder
-2. Right-click `.zip.001` and choose **Extract here** — or open it with 7-Zip and choose *Extract to…*
+1. Download `SIRPYv4-v<version>-windows.zip` from the release page
+2. Right-click the zip and choose **Extract All…** (Windows built-in) or open it with 7-Zip and choose *Extract to…*
 3. Open the extracted `SIRPYv4` folder
 4. Run **`SIRPYv4.exe`**
 
@@ -162,7 +162,6 @@ No manual save is needed — state is written automatically when the app closes.
 
 ### The app won't start
 
-- Make sure you extracted all zip parts before running
 - Ensure you run `SIRPYv4.exe` from inside the extracted `SIRPYv4` folder, not directly from the zip
 
 ### Windows shows a security warning

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.4.0.2] - 2026-05-13
+
+### Changed
+
+- **Distribution archive is now a single zip file**: The release download is now one `.zip` file instead of split `.zip.001`/`.zip.002`/… parts. Windows 10 and 11 can extract it natively using File Explorer — no third-party tool required.
+
 ## [4.4.0] - 2026-05-12
 
 ### Changed
