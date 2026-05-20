@@ -1,6 +1,6 @@
 # Spirit Island Randomizer
 
-[![Version](https://img.shields.io/badge/version-4.4.0-blue)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-4.4.1-blue)](CHANGELOG.md)
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 A Windows desktop app that generates random Spirit Island game combinations and launches them directly in Spirit Island Digital.
@@ -48,9 +48,6 @@ The **Spirit Pool** tab shows all spirits in a collapsible tree. Each base spiri
 - **Complexity filter** — dropdown panel to filter by spirit complexity (Low / Medium / High / Very High)
 - **Name filter** — dropdown panel with a live text search to find spirits by name
 - Each filter has an on/off toggle (click the button) and its own **Clear** button; **Clear All Filters** resets all three at once. Note that when a filter is active, the bulk operations work on the *filtered subset*
-
-One spirit *or* one of its aspects will appear in any given game setup — never both at the same time.
-
 ---
 
 ### Boards, Adversaries & Scenarios
@@ -58,6 +55,8 @@ One spirit *or* one of its aspects will appear in any given game setup — never
 The **Other Pools** tab has three columns: Boards, Adversaries, and Scenarios.
 
 Each column has its own **Select All** / **Deselect All** buttons and uses the same tristate checkboxes as the spirit list.
+
+The **Adversaries** and **Scenarios** columns each have a **Sort** toggle (Name / Expansion). Switching to Expansion reorders items by their source expansion (then alphabetically within it) and colour-codes each item's label with that expansion's colour. Switching back to Name restores alphabetical order and removes the colouring. The sort resets to Name each time the app is launched.
 
 ---
 
@@ -116,6 +115,12 @@ Profiles are useful for switching quickly between preset configurations (e.g. a 
 
 ---
 
+### About Tab
+
+The **About** tab displays copyright acknowledgements, Spirit Island IP credits, an unofficial fan-content disclaimer, third-party library attributions, and the app licence. The results/options panel is hidden while this tab is active.
+
+---
+
 ### Reference Tabs
 
 Four read-only reference tabs let you look up limited information without leaving the app. This is a work in progress, more details will be available in future releases:
@@ -166,7 +171,8 @@ No manual save is needed — state is written automatically when the app closes.
 
 ### Windows shows a security warning
 
-- Click **More info** then **Run anyway** — the app is unsigned but safe
+- Click **More info** then **Run anyway** — the app is unsigned, hence the warning
+- You may have to use the Properties dialogue for the exe to "Unblock" the file because the exe is an Internet download
 - If your organisation blocks unsigned executables, run from a personal machine
 - On Windows 11, if you are using Smart App Control you will not be able to run SIRPY for Windows because the code is unsigned. It's unlikely that this will ever change
 
@@ -189,6 +195,18 @@ No manual save is needed — state is written automatically when the app closes.
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for the full version history.
+
+---
+
+## Acknowledgements
+
+*Spirit Island* was designed by **Eric Reuss** ("Spirit Island: A Game by Eric Reuss"). The Spirit Island board game is published by **Flat River Group**. The Spirit Island Digital adaptation is published by **Handelabra Games Inc.**
+
+This application is unofficial fan-made content and is not affiliated with, endorsed by, or connected to Eric Reuss, Flat River Group, or Handelabra Games Inc. All Spirit Island names, artwork, and game content are the property of their respective rights holders.
+
+Board layout images sourced from the [Spirit Island Wiki](https://spiritislandwiki.com/index.php?title=SpiritIsland:Copyrights) are used under the Creative Commons Attribution-NonCommercial-ShareAlike licence (CC BY-NC-SA).
+
+Data validation schemas were built using [LinkML](https://linkml.io/) (Apache 2.0). This app is built with [PyQt6](https://www.riverbankcomputing.com/software/pyqt/) (LGPL v3 / Qt Commercial), [jsonschema](https://python-jsonschema.readthedocs.io/) (MIT), and [Python](https://www.python.org/) (PSF licence).
 
 ---
 

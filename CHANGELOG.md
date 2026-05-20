@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+No unreleased changes.
+
+## [4.4.1] - 2026-05-20
+
+### Added
+
+- **Sort by expansion on the Adversaries and Scenarios selection panels**: Each panel now has a "Sort: Name / Expansion" toggle. Switching to Expansion reorders items by their source expansion (then alphabetically within it) and highlights each item's label in that expansion's colour — the same colour palette used on the Spirits reference panel. Clicking Name restores alphabetical order and removes the highlighting. The sort resets to Name each time the app is launched.
+
+- **About tab**: A new "About" tab in the main window displays copyright acknowledgements, Spirit Island IP credits (Eric Reuss, Flat River Group, Handelabra Games Inc.), an unofficial fan-content disclaimer, third-party library attributions, and the app licence. The tab behaves like the Reference tab — the results/options panel is hidden while it is active.
+
+### Internal
+
+- **Graphics assets embedded in the Python archive**: All 35 artwork files (board SVGs, Wild.png, ocean background) are now compiled into `resources_rc.py` and sealed inside PyInstaller's PYZ archive. No loose files under `assets/` are shipped in the distribution folder, closing the door on runtime asset substitution.
+- **Build script regenerates embedded assets automatically**: `build_dist.ps1` now runs `scripts/generate_resources.py` as step `[1/5]` on every build, keeping `resources_rc.py` in sync with the `assets/` folder without any manual step.
+- **Qt module and stdlib excludes expanded**: Added `PyQt6.QtPrintSupport`, `QtNetwork`, `QtOpenGL`, `QtOpenGLWidgets`, `QtXml`, `QtQml`, `QtQuick`, `QtDBus`, and a range of unused stdlib modules (`email`, `http.server`, `asyncio`, `csv`, etc.) to the PyInstaller `excludes` list. Reduces the amount of Python bytecode bundled into the archive.
+- **Bytecode optimization level raised to 2**: PyInstaller now compiles `.pyc` files with `optimize=2`, stripping `assert` statements and docstrings. No runtime behaviour change.
+- **`-TestBuild` switch added to `build_dist.ps1`**: Running `.\build_dist.ps1 -TestBuild` produces a `*-test.zip` archive and shows a yellow warning banner, making it easy to produce a labelled test artifact without overwriting the release zip.
+
 ## [4.4.0.2] - 2026-05-13
 
 ### Changed
